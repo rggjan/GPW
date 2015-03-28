@@ -23,6 +23,8 @@ set(SOURCES_SERVER
   Sources/Server/server.h
 )
 
+set(CMAKE_CXX_FLAGS_RELEASE "/MT") ## Optimize
+
 # Find clanlib
 set(ClanLib_MAJOR_VERSION 3)
 set(ClanLib_MINOR_VERSION 0)
@@ -39,8 +41,8 @@ add_executable(gpw_client ${SOURCES_CLIENT})
 add_executable(gpw_server ${SOURCES_SERVER})
 
 # Link with clanlib
-target_link_libraries(gpw_client ${ClanLib_LIBRARIES} pthread)
-target_link_libraries(gpw_server ${ClanLib_LIBRARIES} pthread)
+target_link_libraries(gpw_client ${ClanLib_LIBRARIES})
+target_link_libraries(gpw_server ${ClanLib_LIBRARIES})
 
 set_property(TARGET gpw_client PROPERTY CXX_STANDARD 11)
 set_property(TARGET gpw_server PROPERTY CXX_STANDARD 11)
